@@ -1,0 +1,18 @@
+services:
+  mysql:
+    container_name: mysql
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "Thang123"
+    volumes:
+      - ./data/mysql:/var/lib/mysql
+
+    networks:
+      - pre-mysql
+    restart: always
+
+networks:
+  pre-mysql:
+    driver: bridge
